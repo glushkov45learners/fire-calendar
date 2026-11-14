@@ -28,7 +28,7 @@ services:
       retries: 20
 
   api:
-    image: voloshmiak/fire-calendar-backend:${API_TAG:-0.1.2}
+    image: voloshmiak/fire-calendar-backend:${API_TAG:-0.1.3}
     restart: unless-stopped
     environment:
       DATABASE_URL: postgres://fire:${POSTGRES_PASSWORD}@postgis:5432/fire
