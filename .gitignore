@@ -1,0 +1,5 @@
+/data/
+*.csv.gz
+.env
+.idea/
+/deploy/web/

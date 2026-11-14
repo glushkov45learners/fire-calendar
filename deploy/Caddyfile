@@ -1,0 +1,15 @@
+glushkov45learners.company, www.glushkov45learners.company, 34.118.98.255.sslip.io {
+	encode zstd gzip
+
+	handle /healthz {
+		reverse_proxy api:8080
+	}
+	handle /api/* {
+		reverse_proxy api:8080
+	}
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}
