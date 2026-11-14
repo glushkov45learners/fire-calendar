@@ -1,0 +1,5 @@
+# Deployed on Linux: keep LF in the repo and in every checkout.
+*.sh       text eol=lf
+*.yml      text eol=lf
+Caddyfile  text eol=lf
+.env*      text eol=lf
