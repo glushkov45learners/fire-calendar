@@ -46,6 +46,11 @@ services:
       - caddy_config:/config
     depends_on: [api]
 
+  web:
+    image: voloshmiak/fire-calendar-frontend:${WEB_TAG:-0.1.0}
+    restart: unless-stopped
+
+
 volumes:
   pgdata: {}
   caddy_data: {}
