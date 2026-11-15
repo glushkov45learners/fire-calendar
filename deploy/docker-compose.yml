@@ -32,8 +32,6 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: postgres://fire:${POSTGRES_PASSWORD}@postgis:5432/fire
-      # Monthly e-mail digest. Without SENDGRID_API_KEY nothing is mailed;
-      # without DIGEST_KEY the demo page /api/digest?key=... does not exist.
       SENDGRID_API_KEY: ${SENDGRID_API_KEY:-}
       MAIL_FROM: ${MAIL_FROM:-digest@glushkov45learners.company}
       PUBLIC_URL: ${PUBLIC_URL:-https://glushkov45learners.company}
