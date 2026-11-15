@@ -47,7 +47,7 @@ services:
     depends_on: [api]
 
   web:
-    image: voloshmiak/fire-calendar-frontend:${WEB_TAG:-0.1.8}
+    image: voloshmiak/fire-calendar-frontend:${WEB_TAG:-0.1.9}
     restart: unless-stopped
 
 
