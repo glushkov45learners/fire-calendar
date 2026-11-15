@@ -54,6 +54,17 @@ services:
     image: voloshmiak/fire-calendar-frontend:${WEB_TAG:-0.2.2}
     restart: unless-stopped
 
+  # Daily data refresh job, not a long-running service: started by update_data.sh (cron).
+  updater:
+    image: voloshmiak/fire-calendar-updater:${UPDATER_TAG:-0.1.0}
+    build:
+      context: ..
+      dockerfile: deploy/updater/Dockerfile
+    profiles: [jobs]
+    environment:
+      FIRMS_MAP_KEY: ${FIRMS_MAP_KEY:-}
+    volumes:
+      - ./data:/data
 
 volumes:
   pgdata: {}

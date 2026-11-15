@@ -3,3 +3,4 @@
 .env
 .idea/
 /deploy/web/
+/deploy/data/
