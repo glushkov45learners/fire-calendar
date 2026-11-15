@@ -28,10 +28,16 @@ services:
       retries: 20
 
   api:
-    image: voloshmiak/fire-calendar-backend:${API_TAG:-0.1.4}
+    image: voloshmiak/fire-calendar-backend:${API_TAG:-0.1.5}
     restart: unless-stopped
     environment:
       DATABASE_URL: postgres://fire:${POSTGRES_PASSWORD}@postgis:5432/fire
+      # Monthly e-mail digest. Without SENDGRID_API_KEY nothing is mailed;
+      # without DIGEST_KEY the demo page /api/digest?key=... does not exist.
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY:-}
+      MAIL_FROM: ${MAIL_FROM:-digest@glushkov45learners.company}
+      PUBLIC_URL: ${PUBLIC_URL:-https://glushkov45learners.company}
+      DIGEST_KEY: ${DIGEST_KEY:-}
     depends_on:
       postgis: { condition: service_healthy }
 
